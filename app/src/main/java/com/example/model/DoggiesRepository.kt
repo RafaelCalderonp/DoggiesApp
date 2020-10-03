@@ -23,7 +23,7 @@ class DoggiesRepository(imagesDao: ImagesDao, breedDao: BreedDao) {
         val call = networkService.fetchBreedList()
         call.enqueue(object : Callback<WrapperBreed> {
             override fun onResponse(call: Call<WrapperBreed>, response: Response<WrapperBreed>) {
-                TODO("Not yet implemented")
+                response.body()
             }
 
             override fun onFailure(call: Call<WrapperBreed>, t: Throwable) {

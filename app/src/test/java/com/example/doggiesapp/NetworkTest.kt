@@ -45,9 +45,17 @@ class NetworkTest {
             val resultResponse = service.fetchBreedListCorutinas()
             val request = mockWebServer.takeRequest()
             assertNotNull(resultResponse)
-            assertThat(request.body, `is` ("/breeds/list/" ))
+            //assertThat(request.body, `is` ("/breeds/list/" ))
+            assertThat(request.path, `is` ("/breeds/list/" ))
         }
     }
+
+
+    @Test
+    fun requestListItemString(){
+        
+    }
+
 
     private fun enqueueResponse (filename: String, headers: Map<String, String> = emptyMap()) {
         val source = getJson(filename)
