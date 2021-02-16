@@ -1,6 +1,5 @@
-package com.example.doggiesapp
+package com.example.ui
 
-import android.util.Log
 import com.example.model.remote.ApiInterface
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockResponse
@@ -42,7 +41,7 @@ class NetworkTest {
     fun requestBreedList() {
         runBlocking {
             enqueueResponse("api-response.json")
-            val resultResponse = service.fetchBreedListCorutinas()
+            val resultResponse = service.fetchBreedList()
             val request = mockWebServer.takeRequest()
             assertNotNull(resultResponse)
             //assertThat(request.body, `is` ("/breeds/list/" ))

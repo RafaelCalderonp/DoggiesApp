@@ -1,4 +1,4 @@
-package com.example.doggiesapp.model
+package com.example.ui.model
 
 import android.content.Context
 import androidx.annotation.VisibleForTesting
@@ -7,7 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
-import com.example.model.local.BreedRoomDatabase
+import com.example.model.local.DoggiesDatabase
 import com.example.model.local.dao.BreedDao
 import com.example.model.local.entities.Breed
 
@@ -27,12 +27,12 @@ class BreedRoomTest {
     var instantExecutorRule = InstantTaskExecutorRule()
 
     private lateinit var breedDao: BreedDao
-    private lateinit var db: BreedRoomDatabase
+    private lateinit var db: DoggiesDatabase
 
     @Before
     fun setUp() {
         val context = ApplicationProvider.getApplicationContext<Context>()
-        db = Room.inMemoryDatabaseBuilder(context, BreedRoomDatabase::class.java).build()
+        db = Room.inMemoryDatabaseBuilder(context, DoggiesDatabase::class.java).build()
         breedDao = db.breedDao()
     }
 

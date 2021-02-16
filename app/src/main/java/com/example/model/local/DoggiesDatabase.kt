@@ -10,7 +10,7 @@ import com.example.model.local.entities.Breed
 import com.example.model.local.entities.DoggiesImage
 
 @Database(entities = [Breed::class, DoggiesImage::class], version = 1, exportSchema = false)
-abstract class BreedRoomDatabase : RoomDatabase() {
+abstract class DoggiesDatabase : RoomDatabase() {
 
     abstract fun breedDao(): BreedDao
     abstract fun imagesDao(): ImagesDao
@@ -19,9 +19,9 @@ abstract class BreedRoomDatabase : RoomDatabase() {
         // Singleton prevents multiple instances of database opening at the
         // same time.
         @Volatile
-        private var INSTANCE: BreedRoomDatabase? = null
+        private var INSTANCE: DoggiesDatabase? = null
 
-        fun getDatabase(context: Context): BreedRoomDatabase {
+        fun getDatabase(context: Context): DoggiesDatabase {
             val tempInstance = INSTANCE
             if (tempInstance != null) {
                 return tempInstance
@@ -29,7 +29,7 @@ abstract class BreedRoomDatabase : RoomDatabase() {
             synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    BreedRoomDatabase::class.java,
+                    DoggiesDatabase::class.java,
                     "doggies_database"
                 ).build()
                 INSTANCE = instance
