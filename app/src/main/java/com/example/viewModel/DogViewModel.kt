@@ -10,7 +10,7 @@ import com.example.model.local.entities.Breed
 import com.example.model.local.entities.DoggiesImage
 import kotlinx.coroutines.launch
 
-class DogViewModel(application: Application): AndroidViewModel(application) {
+class   DogViewModel(application: Application): AndroidViewModel(application) {
 
     private val repository : DoggiesRepository
 

@@ -39,7 +39,7 @@ class ImagesAdapter : RecyclerView.Adapter<ImagesAdapter.ImageDogVH>() {
 
         override fun onLongClick(v: View?): Boolean {
             selectedImage.value = listImages[adapterPosition]
-            return true
+            return false
         }
 
     }

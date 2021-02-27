@@ -6,9 +6,11 @@ import com.example.model.remote.pojo.WrapperBreed
 import com.example.model.remote.pojo.WrapperImages
 
 fun fromInternetToBreedEntity(wrapper: WrapperBreed): List<Breed> {
-    return wrapper.message.map { Breed(breed = it) }
+    return wrapper.message.map {
+        Breed(breed = it) }
 }
 
 fun fromInternetToImagesEntity(wrapper: WrapperImages, breed: String): List<DoggiesImage> {
-    return wrapper.message.map { DoggiesImage(imageUrl = it, breed = breed) }
+    return wrapper.message.map {
+        DoggiesImage(imageUrl = it, breed = breed) }
 }
